@@ -39,7 +39,7 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    #client.run_actions(session_id=sender_id, message=message_text) #forwards the message to wit.ai
+                    client.run_actions(session_id=sender_id, message=message_text) #forwards the message to wit.ai
                     # response = client.message(str(message_text))
                     # if(response != ''):
                     #     send_message(sender_id, str(response))
@@ -84,28 +84,28 @@ def send_message(recipient_id, message_text):
         log(r.status_code)
         log(r.text)
 
-# def send(request, response):
-#     """
-#     Sender function
-#     """
-#     # We use the fb_id as equal to session_id
-#     fb_id = request['session_id']
-#     text = response['text']
-#     # send message
-#     send_message(fb_id, text)
+def send(request, response):
+    """
+    Sender function
+    """
+    # We use the fb_id as equal to session_id
+    fb_id = request['session_id']
+    text = response['text']
+    # send message
+    send_message(fb_id, "wit says : " + text)
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
 
-# #actions
-# actions = {
-#     'send' : send,
+#actions
+actions = {
+    'send' : send,
     
-# }
+}
 
-# client = Wit(access_token=os.environ["WIT_ACCESS_TOKEN"], actions=actions)
+client = Wit(access_token=os.environ["WIT_ACCESS_TOKEN"], actions=actions)
 
 if __name__ == '__main__':
     app.run(debug=True)
