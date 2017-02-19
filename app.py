@@ -39,14 +39,14 @@ def webhook():
                     sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
-                    client.run_actions(session_id=recipient_id, message=message_text) #forwards the message to wit.ai
+                    client.run_actions(session_id=sender_id, message=message_text) #forwards the message to wit.ai
                     # response = client.message(str(message_text))
                     # if(response != ''):
                     #     send_message(sender_id, str(response))
                     # else:
                     #     send_message(sender_id, "wit not workin")
-                    # if (message_text == "hi" or message_text == "Hi"):
-                    #     send_message(sender_id, "Hello, how can I help u?")
+                    if (message_text == "hi" or message_text == "Hi"):
+                        send_message(sender_id, "Hello, how can I help u?")
                     
 
                 if messaging_event.get("delivery"):  # delivery confirmation
