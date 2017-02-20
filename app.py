@@ -6,6 +6,7 @@ import requests
 from flask import Flask, request
 from wit import Wit
 import nba_py
+from stats import *
 
 app = Flask(__name__)
 
@@ -41,13 +42,8 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
                     client.run_actions(session_id=sender_id, message=message_text) #forwards the message to wit.ai
-                    # response = client.message(str(message_text))
-                    # if(response != ''):
-                    #     send_message(sender_id, str(response))
-                    # else:
-                    #     send_message(sender_id, "wit not workin")
-                    if (message_text == "hi" or message_text == "Hi"):
-                        send_message(sender_id, "Hello, how can I help u?")
+                    # if (message_text == "hi" or message_text == "Hi"):
+                    #     send_message(sender_id, "Hello, how can I help u?")
                     
 
                 if messaging_event.get("delivery"):  # delivery confirmation
@@ -103,6 +99,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 #actions
 actions = {
     'send' : send,
+    'get_scorecard' : get_scorecard,
     
 }
 
