@@ -100,7 +100,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 def get_scorecard(request):
     context = request['context']
     entities = request['entities']
-    # date_entity = first_entity_value(entities, 'datetime')
+    date_entity = first_entity_value(entities, 'datetime')
     # if date_entity:
     #     date_time = datetime.datetime.strptime(date_entity, "%Y-%m-%d %H:%M:%S.%f")
     #     date = date_time.date()
@@ -165,7 +165,7 @@ def get_scorecard(request):
     # else:
     #     pass
 
-    context['games_list'] = "wit works"
+    context['games_list'] = date_entity
     return context
 def first_entity_value(entities, entity):
     """
