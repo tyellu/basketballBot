@@ -19,9 +19,9 @@ def find_entity_value(entities, entity):
         return None
 	return val['value'] if isinstance(val, dict) else val
 
-def get_scorecard(request):
-	context = request['context']
-	entities = request['entities']
+def get_scorecard(context,entities):
+	# context = request['context']
+	# entities = request['entities']
 	date_entity = entities['datetime'][0]['value']['from']
 	if date_entity:
 		date_time = datetime.datetime.strptime(date_entity, "%Y-%m-%d %H:%M:%S.%f")
