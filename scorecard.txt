@@ -1,0 +1,120 @@
+{
+	u'resource': u'scoreboard', 
+	u'resultSets': 
+		[
+			{
+				u'headers': [u'GAME_DATE_EST', u'GAME_SEQUENCE', u'GAME_ID', u'GAME_STATUS_ID', u'GAME_STATUS_TEXT', u'GAMECODE', u'HOME_TEAM_ID', u'VISITOR_TEAM_ID', u'SEASON', u'LIVE_PERIOD', u'LIVE_PC_TIME', u'NATL_TV_BROADCASTER_ABBREVIATION', u'LIVE_PERIOD_TIME_BCAST', u'WH_STATUS'], 
+				u'rowSet': [
+							[u'2017-02-23T00:00:00', 1, u'0021600850', 1, u'7:00 pm ET', u'20170223/PORORL', 1610612753, 1610612757, u'2016', 0, u'     ', None, u'Q0       - ', 0], 
+							[u'2017-02-23T00:00:00', 2, u'0021600851', 1, u'7:30 pm ET', u'20170223/CHADET', 1610612765, 1610612766, u'2016', 0, u'     ', None, u'Q0       - ', 0], 
+							[u'2017-02-23T00:00:00', 3, u'0021600852', 1, u'8:00 pm ET', u'20170223/HOUNOP', 1610612740, 1610612745, u'2016', 0, u'     ', None, u'Q0       - ', 0], 
+							[u'2017-02-23T00:00:00', 4, u'0021600853', 1, u'8:00 pm ET', u'20170223/NYKCLE', 1610612739, 1610612752, u'2016', 0, u'     ', u'TNT', u'Q0       - TNT', 0], 
+							[u'2017-02-23T00:00:00', 5, u'0021600854', 1, u'10:30 pm ET', u'20170223/LACGSW', 1610612744, 1610612746, u'2016', 0, u'     ', u'TNT', u'Q0       - TNT', 0], 
+							[u'2017-02-23T00:00:00', 6, u'0021600855', 1, u'10:30 pm ET', u'20170223/DENSAC', 1610612758, 1610612743, u'2016', 0, u'     ', None, u'Q0       - ', 0]
+						   ], 
+				u'name': u'GameHeader'
+			}, 
+			{
+				u'headers': [u'GAME_DATE_EST', u'GAME_SEQUENCE', u'GAME_ID', u'TEAM_ID', u'TEAM_ABBREVIATION', u'TEAM_CITY_NAME', u'TEAM_WINS_LOSSES', u'PTS_QTR1', u'PTS_QTR2', u'PTS_QTR3', u'PTS_QTR4', u'PTS_OT1', u'PTS_OT2', u'PTS_OT3', u'PTS_OT4', u'PTS_OT5', u'PTS_OT6', u'PTS_OT7', u'PTS_OT8', u'PTS_OT9', u'PTS_OT10', u'PTS', u'FG_PCT', u'FT_PCT', u'FG3_PCT', u'AST', u'REB', u'TOV'], 
+				u'rowSet': [
+							[u'2017-02-23T00:00:00', 1, u'0021600850', 1610612753, u'ORL', u'Orlando', u'21-37', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 1, u'0021600850', 1610612757, u'POR', u'Portland', u'23-33', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 2, u'0021600851', 1610612765, u'DET', u'Detroit', u'27-30', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 2, u'0021600851', 1610612766, u'CHA', u'Charlotte', u'24-32', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 3, u'0021600852', 1610612740, u'NOP', u'New Orleans', u'23-34', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 3, u'0021600852', 1610612745, u'HOU', u'Houston', u'40-18', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 4, u'0021600853', 1610612739, u'CLE', u'Cleveland', u'39-16', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 4, u'0021600853', 1610612752, u'NYK', u'New York', u'23-34', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 5, u'0021600854', 1610612744, u'GSW', u'Golden State', u'47-9', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 5, u'0021600854', 1610612746, u'LAC', u'LA', u'35-21', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 6, u'0021600855', 1610612743, u'DEN', u'Denver', u'25-31', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None], 
+							[u'2017-02-23T00:00:00', 6, u'0021600855', 1610612758, u'SAC', u'Sacramento', u'24-33', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]
+						   ], 
+				u'name': u'LineScore'
+			}, 
+			{
+				u'headers': [u'GAME_ID', u'HOME_TEAM_ID', u'VISITOR_TEAM_ID', u'GAME_DATE_EST', u'HOME_TEAM_WINS', u'HOME_TEAM_LOSSES', u'SERIES_LEADER'], 
+				u'rowSet': [
+							[u'0021600851', 1610612765, 1610612766, u'2017-02-23T00:00:00', 2, 1, u'Detroit'], 
+							[u'0021600850', 1610612753, 1610612757, u'2017-02-23T00:00:00', 1, 0, u'Orlando'], 
+							[u'0021600852', 1610612740, 1610612745, u'2017-02-23T00:00:00', 0, 1, u'Houston'], 
+							[u'0021600855', 1610612758, 1610612743, u'2017-02-23T00:00:00', 1, 0, u'Sacramento'], 
+							[u'0021600853', 1610612739, 1610612752, u'2017-02-23T00:00:00', 3, 0, u'Cleveland'], 
+							[u'0021600854', 1610612744, 1610612746, u'2017-02-23T00:00:00', 3, 0, u'Golden State']
+						   ], 
+				u'name': u'SeriesStandings'
+			}, 
+			{
+				u'headers': [u'GAME_ID', u'LAST_GAME_ID', u'LAST_GAME_DATE_EST', u'LAST_GAME_HOME_TEAM_ID', u'LAST_GAME_HOME_TEAM_CITY', u'LAST_GAME_HOME_TEAM_NAME', u'LAST_GAME_HOME_TEAM_ABBREVIATION', u'LAST_GAME_HOME_TEAM_POINTS', u'LAST_GAME_VISITOR_TEAM_ID', u'LAST_GAME_VISITOR_TEAM_CITY', u'LAST_GAME_VISITOR_TEAM_NAME', u'LAST_GAME_VISITOR_TEAM_CITY1', u'LAST_GAME_VISITOR_TEAM_POINTS'], 
+				u'rowSet': [
+							[u'0021600850', u'0021600598', u'2017-01-13T00:00:00', 1610612753, u'Orlando', u'Magic', u'ORL', 115, 1610612757, u'Portland', u'Trail Blazers', u'POR', 109], 
+							[u'0021600851', u'0021600538', u'2017-01-05T00:00:00', 1610612765, u'Detroit', u'Pistons', u'DET', 115, 1610612766, u'Charlotte', u'Hornets', u'CHA', 114], 
+							[u'0021600852', u'0021600395', u'2016-12-16T00:00:00', 1610612740, u'New Orleans', u'Pelicans', u'NOP', 100, 1610612745, u'Houston', u'Rockets', u'HOU', 122], 
+							[u'0021600853', u'0021600759', u'2017-02-04T00:00:00', 1610612739, u'Cleveland', u'Cavaliers', u'CLE', 111, 1610612752, u'New York', u'Knicks', u'NYK', 104], 
+							[u'0021600854', u'0021600745', u'2017-02-02T00:00:00', 1610612744, u'Golden State', u'Warriors', u'GSW', 133, 1610612746, u'LA', u'Clippers', u'LAC', 120], 
+							[u'0021600855', u'0021600526', u'2017-01-03T00:00:00', 1610612758, u'Sacramento', u'Kings', u'SAC', 120, 1610612743, u'Denver', u'Nuggets', u'DEN', 113]
+						   ], 
+				u'name': u'LastMeeting'
+			}, 
+			{
+				u'headers': [u'TEAM_ID', u'LEAGUE_ID', u'SEASON_ID', u'STANDINGSDATE', u'CONFERENCE', u'TEAM', u'G', u'W', u'L', u'W_PCT', u'HOME_RECORD', u'ROAD_RECORD'], 
+				u'rowSet': [
+							[1610612739, u'00', u'22016', u'02/23/2017', u'East', u'Cleveland', 55, 39, 16, 0.709, u'24-5', u'15-11'], 
+							[1610612738, u'00', u'22016', u'02/23/2017', u'East', u'Boston', 57, 37, 20, 0.649, u'20-8', u'17-12'], 
+							[1610612764, u'00', u'22016', u'02/23/2017', u'East', u'Washington', 55, 34, 21, 0.618, u'24-7', u'10-14'], 
+							[1610612761, u'00', u'22016', u'02/23/2017', u'East', u'Toronto', 57, 33, 24, 0.579, u'19-10', u'14-14'], 
+							[1610612737, u'00', u'22016', u'02/23/2017', u'East', u'Atlanta', 56, 32, 24, 0.571, u'16-11', u'16-13'], 
+							[1610612754, u'00', u'22016', u'02/23/2017', u'East', u'Indiana', 57, 29, 28, 0.509, u'20-10', u'9-18'], 
+							[1610612741, u'00', u'22016', u'02/23/2017', u'East', u'Chicago', 57, 28, 29, 0.491, u'17-11', u'11-18'], 
+							[1610612765, u'00', u'22016', u'02/23/2017', u'East', u'Detroit', 57, 27, 30, 0.474, u'17-11', u'10-19'], 
+							[1610612749, u'00', u'22016', u'02/23/2017', u'East', u'Milwaukee', 55, 25, 30, 0.455, u'14-14', u'11-16'], 
+							[1610612748, u'00', u'22016', u'02/23/2017', u'East', u'Miami', 57, 25, 32, 0.439, u'13-14', u'12-18'], 
+							[1610612766, u'00', u'22016', u'02/23/2017', u'East', u'Charlotte', 56, 24, 32, 0.429, u'16-13', u'8-19'], 
+							[1610612752, u'00', u'22016', u'02/23/2017', u'East', u'New York', 57, 23, 34, 0.404, u'14-15', u'9-19'], 
+							[1610612755, u'00', u'22016', u'02/23/2017', u'East', u'Philadelphia', 56, 21, 35, 0.375, u'13-16', u'8-19'], 
+							[1610612753, u'00', u'22016', u'02/23/2017', u'East', u'Orlando', 58, 21, 37, 0.362, u'9-18', u'12-19'], 
+							[1610612751, u'00', u'22016', u'02/23/2017', u'East', u'Brooklyn', 56, 9, 47, 0.161, u'7-24', u'2-23']
+						   ], 
+				u'name': u'EastConfStandingsByDay'
+			}, 
+			{
+				u'headers': [u'TEAM_ID', u'LEAGUE_ID', u'SEASON_ID', u'STANDINGSDATE', u'CONFERENCE', u'TEAM', u'G', u'W', u'L', u'W_PCT', u'HOME_RECORD', u'ROAD_RECORD'], 
+				u'rowSet': [
+							[1610612744, u'00', u'22016', u'02/23/2017', u'West', u'Golden State', 56, 47, 9, 0.839, u'24-3', u'23-6'], 
+							[1610612759, u'00', u'22016', u'02/23/2017', u'West', u'San Antonio', 56, 43, 13, 0.768, u'19-6', u'24-7'], 
+							[1610612745, u'00', u'22016', u'02/23/2017', u'West', u'Houston', 58, 40, 18, 0.69, u'21-7', u'19-11'], 
+							[1610612746, u'00', u'22016', u'02/23/2017', u'West', u'LA Clippers', 56, 35, 21, 0.625, u'18-8', u'17-13'], 
+							[1610612762, u'00', u'22016', u'02/23/2017', u'West', u'Utah', 57, 35, 22, 0.614, u'20-11', u'15-11'], 
+							[1610612763, u'00', u'22016', u'02/23/2017', u'West', u'Memphis', 58, 34, 24, 0.586, u'18-11', u'16-13'], 
+							[1610612760, u'00', u'22016', u'02/23/2017', u'West', u'Oklahoma City', 57, 32, 25, 0.561, u'20-8', u'12-17'], 
+							[1610612743, u'00', u'22016', u'02/23/2017', u'West', u'Denver', 56, 25, 31, 0.446, u'15-13', u'10-18'], 
+							[1610612758, u'00', u'22016', u'02/23/2017', u'West', u'Sacramento', 57, 24, 33, 0.421, u'12-15', u'12-18'], 
+							[1610612757, u'00', u'22016', u'02/23/2017', u'West', u'Portland', 56, 23, 33, 0.411, u'14-13', u'9-20'], 
+							[1610612740, u'00', u'22016', u'02/23/2017', u'West', u'New Orleans', 57, 23, 34, 0.404, u'14-15', u'9-19'], 
+							[1610612742, u'00', u'22016', u'02/23/2017', u'West', u'Dallas', 56, 22, 34, 0.393, u'14-14', u'8-20'], 
+							[1610612750, u'00', u'22016', u'02/23/2017', u'West', u'Minnesota', 57, 22, 35, 0.386, u'14-18', u'8-17'], 
+							[1610612747, u'00', u'22016', u'02/23/2017', u'West', u'L.A. Lakers', 58, 19, 39, 0.328, u'12-14', u'7-25'], 
+							[1610612756, u'00', u'22016', u'02/23/2017', u'West', u'Phoenix', 57, 18, 39, 0.316, u'10-18', u'8-21']
+						   ], 
+				u'name': u'WestConfStandingsByDay'
+			}, 
+			{
+			u'headers': [u'GAME_ID', u'PT_AVAILABLE'], 
+			u'rowSet': [
+						[u'0021600850', 0], 
+						[u'0021600851', 0], 
+						[u'0021600852', 0], 
+						[u'0021600855', 0], 
+						[u'0021600853', 0], 
+						[u'0021600854', 0]
+					   ], 
+			u'name': u'Available'
+			}
+		], 
+	u'parameters': 
+		{
+			u'LeagueID': u'00', 
+			u'GameDate': u'02/23/2017', 
+			u'DayOffset': u'0'
+		}
+}
