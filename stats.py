@@ -8,7 +8,7 @@ import pandas
 from datetime import datetime, timedelta
 from wit import Wit
 
-def find_entity_value(entities, entity):
+def first_entity_value(entities, entity):
     """
     Returns first entity value
     """
@@ -19,10 +19,10 @@ def find_entity_value(entities, entity):
         return None
 	return val['value'] if isinstance(val, dict) else val
 
-def get_scorecard(context,entities):
-	# context = request['context']
-	# entities = request['entities']
-	date_entity = entities['datetime'][0]['value']['from']
+def get_scorecard(request):
+	context = request['context']
+	entities = request['entities']
+	date_entity = first_entity_value(entities, "datetime")
 	if date_entity:
 		date_time = datetime.datetime.strptime(date_entity, "%Y-%m-%d %H:%M:%S.%f")
 		date = date_time.date()
