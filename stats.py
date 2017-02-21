@@ -88,7 +88,7 @@ def get_games(request):
     return context
 
 
-def get_standings(request):
+def get_standings(conf):
     context = request['context']
     entities = request['entities']
     conf = first_entity_value(entities, 'conference')
@@ -101,20 +101,23 @@ def get_standings(request):
         elif(conf[0] == 'w' or conf[0] == 'W'):
             standings = scorecard.west_conf_standings_by_day()
     std = standings.iloc[:,5 : 9 ]
-    temp=[]
+    headers=['Team', 'GP', 'W', 'L']
     std_str = ''
+    temp_str = ' '.join(map(str, headers))
+    std_str += (temp_str + "\n")
     for row in std.values[0:-1]:
         temp_str = ' '.join(map(str, row))
         std_str += (temp_str + "\n")
     if(len(std.values) != 0):
         temp_str = ' '.join(map(str, std.values[-1]))
         std_str += (temp_str + "\n")
+    print(std_str)
     context['standings'] = std_str
     return(context)
 
 
 # if __name__ == '__main__':
-#     get_standings("")
+#     get_standings("east")
 
 
 

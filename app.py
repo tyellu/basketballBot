@@ -99,6 +99,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 #actions
 actions = {
     'send' : send,
+    # 'do_action': do_action,
     'get_games' : get_games,
     'get_standings' : get_standings,
     
