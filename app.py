@@ -97,7 +97,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
 
-def get_scorecard(date):
+def get_scorecard(request):
     context = request['context']
     entities = request['entities']
     date = first_entity_value(entities, 'datetime')
