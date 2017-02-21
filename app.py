@@ -152,7 +152,7 @@ def get_scorecard(request):
         games_list.append(str(team_details[str(awayteam_id)]) + " @ " 
             + str(team_details[str(hometeam_id)]) + " at " + str(game_time))
     g_list = ''
-    for games in games_list[0:-2] :
+    for games in games_list[0:-1] :
         g_list += (games + '\n')
     if(len(g_list) != 0):
         g_list += games_list[-1]
