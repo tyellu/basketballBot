@@ -88,7 +88,7 @@ def get_games(request):
     return context
 
 
-def get_standings(conf):
+def get_standings(request):
     context = request['context']
     entities = request['entities']
     conf = first_entity_value(entities, 'conference')
