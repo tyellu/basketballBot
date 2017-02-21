@@ -44,8 +44,6 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
                     client.run_actions(session_id=sender_id, message=message_text) #forwards the message to wit.ai
-                    # if (message_text == "hi" or message_text == "Hi"):
-                    #     send_message(sender_id, "Hello, how can I help u?")
                     
 
                 if messaging_event.get("delivery"):  # delivery confirmation
@@ -91,7 +89,7 @@ def send(request, response):
     fb_id = request['session_id']
     text = response['text']
     # send message
-    send_message(fb_id, "wit says : " + text)
+    send_message(fb_id, text)
 
 
 def log(message):  # simple wrapper for logging to stdout on heroku
@@ -102,6 +100,7 @@ def log(message):  # simple wrapper for logging to stdout on heroku
 actions = {
     'send' : send,
     'get_games' : get_games,
+    'get_standings' : get_standings,
     
 }
 

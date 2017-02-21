@@ -8,6 +8,39 @@ import pandas
 from datetime import datetime, timedelta,date
 from wit import Wit
 
+#Global Variables
+team_details = {
+    '1610612737' : "ATL",
+    '1610612738' : "BOS",
+    '1610612751' : 'BKN',
+    '1610612766' : 'CHA',
+    '1610612741' : 'CHI',
+    '1610612739' : 'CLE',
+    '1610612742' : 'DAL',
+    '1610612743' : 'DEN',
+    '1610612765' : 'DET',
+    '1610612744' : 'GSW',
+    '1610612745' : 'HOU',
+    '1610612754' : 'IND',
+    '1610612746' : 'LAC',
+    '1610612747' : 'LAL',
+    '1610612763' : 'MEM',
+    '1610612748' : 'MIA',
+    '1610612749' : 'MIL',
+    '1610612750' : 'MIN',
+    '1610612740' : 'NOP',
+    '1610612752' : 'NYK',
+    '1610612760' : 'OKC',
+    '1610612753' : 'ORL',
+    '1610612755' : 'PHI',
+    '1610612756' : 'PHX',
+    '1610612757' : 'POR',
+    '1610612758' : 'SAC',
+    '1610612759' : 'SAS',
+    '1610612761' : 'TOR',
+    '1610612762' : 'UTA',
+    '1610612764' : 'WAS',
+}
 
 def first_entity_value(entities, entity):
     """
@@ -32,38 +65,6 @@ def get_games(request):
     hometeam_id_index = 6
     awayteam_id_index = 7
     game_time_index = 4
-    team_details = {
-        '1610612737' : "ATL",
-        '1610612738' : "BOS",
-        '1610612751' : 'BKN',
-        '1610612766' : 'CHA',
-        '1610612741' : 'CHI',
-        '1610612739' : 'CLE',
-        '1610612742' : 'DAL',
-        '1610612743' : 'DEN',
-        '1610612765' : 'DET',
-        '1610612744' : 'GSW',
-        '1610612745' : 'HOU',
-        '1610612754' : 'IND',
-        '1610612746' : 'LAC',
-        '1610612747' : 'LAL',
-        '1610612763' : 'MEM',
-        '1610612748' : 'MIA',
-        '1610612749' : 'MIL',
-        '1610612750' : 'MIN',
-        '1610612740' : 'NOP',
-        '1610612752' : 'NYK',
-        '1610612760' : 'OKC',
-        '1610612753' : 'ORL',
-        '1610612755' : 'PHI',
-        '1610612756' : 'PHX',
-        '1610612757' : 'POR',
-        '1610612758' : 'SAC',
-        '1610612759' : 'SAS',
-        '1610612761' : 'TOR',
-        '1610612762' : 'UTA',
-        '1610612764' : 'WAS',
-    }
     games_scheduled = {}
     for game in today_games:
         games_scheduled[game[game_id_index]] = [game[hometeam_id_index],game[awayteam_id_index],game[game_time_index]]
@@ -82,8 +83,38 @@ def get_games(request):
         context['games_list'] = g_list
     else:
         context['games_list'] = 'unavilable'
-    print(g_list)
+    # print(g_list)
 
     return context
+
+
+def get_standings(request):
+    context = request['context']
+    entities = request['entities']
+    conf = first_entity_value(entities, 'conference')
+    today = date.today()
+    scorecard = nba_py.Scoreboard(month=today.month, day=today.day, year=today.year)
+    standings = None
+    if(conf != ''):
+        if(conf[0] == 'e' or conf[0] == 'E'):
+            standings = scorecard.east_conf_standings_by_day()
+        elif(conf[0] == 'w' or conf[0] == 'W'):
+            standings = scorecard.west_conf_standings_by_day()
+    std = standings.iloc[:,5 : 9 ]
+    temp=[]
+    std_str = ''
+    for row in std.values[0:-1]:
+        temp_str = ' '.join(map(str, row))
+        std_str += (temp_str + "\n")
+    if(len(std.values) != 0):
+        temp_str = ' '.join(map(str, std.values[-1]))
+        std_str += (temp_str + "\n")
+    context['standings'] = std_str
+    return(context)
+
+
+# if __name__ == '__main__':
+#     get_standings("")
+
 
 
