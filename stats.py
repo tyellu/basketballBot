@@ -42,21 +42,21 @@ team_details = {
     '1610612764' : 'WAS',
 }
 
-def first_entity_value(entities, entity):
-    """
-    Returns first entity value
-    """
-    if entity not in entities:
-        return None
-    val = entities[entity][0]['value']
-    if not val:
-        return None
-    return val['value'] if isinstance(val, dict) else val
+# def first_entity_value(entities, entity):
+#     """
+#     Returns first entity value
+#     """
+#     if entity not in entities:
+#         return None
+#     val = entities[entity][0]['value']
+#     if not val:
+#         return None
+#     return val['value'] if isinstance(val, dict) else val
 
-def get_games(request):
-    context = request['context']
-    entities = request['entities']
-    date = first_entity_value(entities, 'datetime')
+def get_games(date):
+    # context = request['context']
+    # entities = request['entities']
+    # date = first_entity_value(entities, 'datetime')
     scorecard =  nba_py.Scoreboard(month=int(date[5:7]), day=int(date[8:10]), year=int(date[0:4]))
     scoreboard = scorecard.json
     result_set = scoreboard['resultSets']
@@ -80,18 +80,20 @@ def get_games(request):
         g_list += (games + '\n')
     if(len(g_list) != 0):
         g_list += games_list[-1]
-        context['games_list'] = g_list
+        # context['games_list'] = g_list
     else:
-        context['games_list'] = 'unavilable'
+        g_list = 'There seems to be no games today'
+        # context['games_list'] = 'unavilable'
     # print(g_list)
 
-    return context
+    # return context
+    return (g_list)
 
 
-def get_standings(request):
-    context = request['context']
-    entities = request['entities']
-    conf = first_entity_value(entities, 'conference')
+def get_standings(conf):
+    # context = request['context']
+    # entities = request['entities']
+    # conf = first_entity_value(entities, 'conference')
     today = date.today()
     scorecard = nba_py.Scoreboard(month=today.month, day=today.day, year=today.year)
     standings = None
@@ -111,9 +113,9 @@ def get_standings(request):
     if(len(std.values) != 0):
         temp_str = ' '.join(map(str, std.values[-1]))
         std_str += (temp_str + "\n")
-    print(std_str)
-    context['standings'] = std_str
-    return(context)
+    # print(std_str)
+    # context['standings'] = std_str
+    return(std_str)
 
 
 # if __name__ == '__main__':

@@ -96,12 +96,42 @@ def log(message):  # simple wrapper for logging to stdout on heroku
     print str(message)
     sys.stdout.flush()
 
+def first_entity_value(entities, entity):
+    """
+    Returns first entity value
+    """
+    if entity not in entities:
+        return None
+    val = entities[entity][0]['value']
+    if not val:
+        return None
+    return val['value'] if isinstance(val, dict) else val
+
+def do_action(request):
+    context = request['context']
+    entities = request['entities']
+    query = first_entity_value(entities, 'query')
+    if(query == 'games'):
+        date = first_entity_value(entities, 'datetime')
+        if(date):
+            result = get_games(date)
+            context['games_list'] = result
+        else:
+            pass
+    elif(query == 'standings'):
+        conf = first_entity_value(entities, 'datetime')
+        if(conf):
+            result = get_standings(conf)
+            context['standings'] = result
+    return context
+
+
 #actions
 actions = {
     'send' : send,
-    # 'do_action': do_action,
-    'get_games' : get_games,
-    'get_standings' : get_standings,
+    'do_action': do_action,
+    # 'get_games' : get_games,
+    # 'get_standings' : get_standings,
     
 }
 
