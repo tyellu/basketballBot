@@ -2,11 +2,13 @@ import os
 import sys
 import json
 import nba_py
+from nba_py import game
 from nba_py import *
 import requests
 import pandas
 from datetime import datetime, timedelta,date
 from wit import Wit
+import time
 
 #Global Variables
 team_details = {
@@ -94,9 +96,38 @@ def get_standings(conf):
         std_str += (temp_str + "\n")
     return(std_str)
 
+def get_scores(_date):
+    # pandas.set_option('display.max_columns', 23)
+    today = date.today()
+    s_str = ''
+    if((int(_date[5:7]) > today.month) or 
+        (int(_date[8:10]) > today.day) or 
+        (int(_date[0:4]) > today.year)):
+        s_str = "games have not started yet"
+    else:
+        scorecard =  nba_py.Scoreboard(month=int(_date[5:7]), day=int(_date[8:10]), year=int(_date[0:4]))
+        games_frame = scorecard.game_header()
+        _games = games_frame['GAME_ID'].values
+        s_list = []
+        for g in _games:
+            game_1 =  game.BoxscoreSummary(g).line_score()
+            game_stats = game_1.loc[:,['TEAM_ABBREVIATION','PTS']]
+            temp_str_1 = (' '.join(map(str,game_stats.values[0])))
+            temp_str_2 = (' '.join(map(str,game_stats.values[1])))
+            s_list.append(temp_str_1 + ' - ' + temp_str_2)
+        for g in s_list[0:-1] :
+            s_str += (g + '\n')
+        if(len(s_list) != 0):
+            s_str += s_list[-1]
+        else:
+            s_str = "There seems to be no games today"
+    return(s_str)
+
+
 
 # if __name__ == '__main__':
-#     get_standings("east")
+#     today = date.today()
+#     get_scores(str(today))
 
 
 

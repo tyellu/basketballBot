@@ -123,6 +123,15 @@ def do_action(request):
         if(conf):
             result = get_standings(conf)
             context['standings'] = result
+    elif(query == 'scores'):
+        date = first_entity_value(entities, 'datetime')
+        if(date):
+            result = get_scores(date)
+            context['score_list'] = result
+        else:
+            today = date.today()
+            result = get_scores(today)
+            context['score_list'] = result
     return context
 
 
