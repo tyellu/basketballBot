@@ -119,7 +119,7 @@ def do_action(request):
         else:
             pass
     elif(query == 'standings'):
-        conf = first_entity_value(entities, 'datetime')
+        conf = first_entity_value(entities, 'conference')
         if(conf):
             result = get_standings(conf)
             context['standings'] = result
@@ -130,8 +130,6 @@ def do_action(request):
 actions = {
     'send' : send,
     'do_action': do_action,
-    # 'get_games' : get_games,
-    # 'get_standings' : get_standings,
     
 }
 
