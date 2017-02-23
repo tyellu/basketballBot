@@ -100,92 +100,51 @@ def get_standings(conf):
 
 def get_scores(_date):
     st = time.time()
-    today = date.today()
     s_str = ''
-    if((int(_date[5:7]) > today.month) or 
-        (int(_date[8:10]) > today.day) or 
-        (int(_date[0:4]) > today.year)):
-        s_str = "games have not started yet"
-    else:
-        scorecard =  nba_py.Scoreboard(month=int(_date[5:7]), day=int(_date[8:10]), year=int(_date[0:4]))
-        scoreboard = scorecard.json
-        result_set = scoreboard['resultSets']
-        today_games = result_set[0]['rowSet']
-        live_score_set = result_set[1]['rowSet']
-        game_id_index = 2
-        hometeam_id_index = 6
-        awayteam_id_index = 7
-        game_time_index = 4
-        games_scheduled = {}
-        i = 0
-        for game in today_games:
-            hometeam = game[hometeam_id_index]
-            awayteam = game[awayteam_id_index]
-            hometeam_score = None
-            awayteam_score = None
-            if((live_score_set[i][3]) == hometeam):
-                hometeam_score = live_score_set[i][21]
-                awayteam_score = live_score_set[i+1][21]
-            else:
-                hometeam_score = live_score_set[i+1][21]
-                awayteam_score = live_score_set[i][21]
-            games_scheduled[game[game_id_index]] = [hometeam,awayteam, hometeam_score, awayteam_score]
-            i += 2
-        s_list = []
-        for key in games_scheduled:
-            hometeam_id = games_scheduled[key][0]
-            hometeam_score = games_scheduled[key][2]
-            awayteam_id = games_scheduled[key][1]
-            awayteam_score = games_scheduled[key][3]
-            s_list.append(str(team_details[str(awayteam_id)]) + " " +str(awayteam_score) +" @ " 
-                + str(team_details[str(hometeam_id)])+ " " + str(hometeam_score))
-        for g in s_list[0:-1] :
-            s_str += (g + '\n')
-        if(len(s_list) != 0):
-            s_str += s_list[-1]
+    scorecard =  nba_py.Scoreboard(month=int(_date[5:7]), day=int(_date[8:10]), year=int(_date[0:4]))
+    scoreboard = scorecard.json
+    result_set = scoreboard['resultSets']
+    today_games = result_set[0]['rowSet']
+    live_score_set = result_set[1]['rowSet']
+    game_id_index = 2
+    hometeam_id_index = 6
+    awayteam_id_index = 7
+    game_time_index = 4
+    games_scheduled = {}
+    i = 0
+    for game in today_games:
+        hometeam = game[hometeam_id_index]
+        awayteam = game[awayteam_id_index]
+        game_time = game[game_time_index]
+        hometeam_score = None
+        awayteam_score = None
+        if((live_score_set[i][3]) == hometeam):
+            hometeam_score = live_score_set[i][21]
+            awayteam_score = live_score_set[i+1][21]
         else:
-            s_str = "There seems to be no games today"
+            hometeam_score = live_score_set[i+1][21]
+            awayteam_score = live_score_set[i][21]
+        games_scheduled[game[game_id_index]] = [hometeam,awayteam, hometeam_score, awayteam_score, game_time]
+        i += 2
+    s_list = []
+    for key in games_scheduled:
+        hometeam_id = games_scheduled[key][0]
+        hometeam_score = games_scheduled[key][2]
+        awayteam_id = games_scheduled[key][1]
+        awayteam_score = games_scheduled[key][3]
+        game_time = games_scheduled[key][4]
+        s_list.append(str(team_details[str(awayteam_id)]) + " " +str(awayteam_score) +" @ " 
+            + str(team_details[str(hometeam_id)])+ " " + str(hometeam_score) + ' '+ game_time)
+    for g in s_list[0:-1] :
+        s_str += (g + '\n')
+    if(len(s_list) != 0):
+        s_str += s_list[-1]
+    else:
+        s_str = "There seems to be no games today"
     return(s_str)
-
-
-
-# def get_scores_1(_date):
-#     # pandas.set_option('display.max_columns', 23)
-#     st = time.time()
-#     today = date.today()
-#     s_str = ''
-#     if((int(_date[5:7]) > today.month) or 
-#         (int(_date[8:10]) > today.day) or 
-#         (int(_date[0:4]) > today.year)):
-#         s_str = "games have not started yet"
-#     else:
-#         scorecard =  nba_py.Scoreboard(month=int(_date[5:7]), day=int(_date[8:10]), year=int(_date[0:4]))
-#         games_frame = scorecard.game_header()
-#         _games = games_frame['GAME_ID'].values
-#         s_list = []
-#         for g in _games:
-#             game_1 =  game.BoxscoreSummary(g).line_score()
-#             game_stats = game_1.loc[:,['TEAM_ABBREVIATION','PTS']]
-#             temp_str_1 = (' '.join(map(str,game_stats.values[0])))
-#             temp_str_2 = (' '.join(map(str,game_stats.values[1])))
-#             s_list.append(temp_str_1 + ' - ' + temp_str_2)
-#         for g in s_list[0:-1] :
-#             s_str += (g + '\n')
-#         if(len(s_list) != 0):
-#             s_str += s_list[-1]
-#         else:
-#             s_str = "There seems to be no games today"
-#     print(s_str)
-#     print(time.time() - st)
-
-
 
 # if __name__ == '__main__':
 #     today = "2017-02-15"
-#     get_scores_1(today)
-    # scorecard =  nba_py.Scoreboard(month=02, day=14, year=2017)
-    # scoreboard = scorecard.json
-    # print (scoreboard)
-
+#     get_scores(today)
 
 
